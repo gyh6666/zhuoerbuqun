@@ -8,25 +8,25 @@ import java.awt.Toolkit;
 public class Home {
 	private int x, y;
 	private TankClient tc;
-	public static final int width = 30, length = 30; // È«¾Ö¾²Ì¬±äÁ¿³¤¿í
+	public static final int width = 35, length = 35; // È«ï¿½Ö¾ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private boolean live = true;
 
-	private static Toolkit tk = Toolkit.getDefaultToolkit(); // È«¾Ö¾²Ì¬±äÁ¿
+	private static Toolkit tk = Toolkit.getDefaultToolkit(); // È«ï¿½Ö¾ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½
 	private static Image[] homeImags = null;
 	static {
 		homeImags = new Image[] { tk.getImage(CommonWall.class
 				.getResource("Images/home.jpg")), };
 	}
 
-	public Home(int x, int y, TankClient tc) {// ¹¹Ôìº¯Êý£¬´«µÝHomeµÄ²ÎÊý²¢¸³Öµ
+	public Home(int x, int y, TankClient tc) {// ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Homeï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 		this.x = x;
 		this.y = y;
-		this.tc = tc; // »ñµÃ¿ØÖÆ
+		this.tc = tc; // ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½
 	}
 
 	public void gameOver(Graphics g) {
 
-		tc.tanks.clear();// ×÷ÇåÀíÒ³Ãæ¹¤×÷
+		tc.tanks.clear();// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò³ï¿½æ¹¤ï¿½ï¿½
 		tc.metalWall.clear();
 		tc.otherWall.clear();
 		tc.bombTanks.clear();
@@ -34,12 +34,12 @@ public class Home {
 		tc.trees.clear();
 		tc.bullets.clear();
 		tc.homeTank.setLive(false);
-		Color c = g.getColor(); // ÉèÖÃ²ÎÊý
+		Color c = g.getColor(); // ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
 		g.setColor(Color.green);
 		Font f = g.getFont();
 		g.setFont(new Font(" ", Font.PLAIN, 40));
-		g.drawString("ÄãÊäÁË£¡", 220, 250);
-		g.drawString("  ÓÎÏ·½áÊø£¡ ", 220, 300);
+		g.drawString("ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½", 220, 250);
+		g.drawString("  ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ", 220, 300);
 		g.setFont(f);
 		g.setColor(c);
 
@@ -47,7 +47,7 @@ public class Home {
 
 	public void draw(Graphics g) {
 
-		if (live) { // Èç¹û»î×Å£¬Ôò»­³öhome
+		if (live) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£ï¿½ï¿½ò»­³ï¿½home
 			g.drawImage(homeImags[0], x, y, null);
 
 			for (int i = 0; i < tc.homeWall.size(); i++) {
@@ -55,20 +55,20 @@ public class Home {
 				w.draw(g);
 			}
 		} else {
-			gameOver(g); // µ÷ÓÃÓÎÏ·½áÊø
+			gameOver(g); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½
 
 		}
 	}
 
-	public boolean isLive() { // ÅÐ¶ÁÊÇ·ñ»¹»î×Å
+	public boolean isLive() { // ï¿½Ð¶ï¿½ï¿½Ç·ñ»¹»ï¿½ï¿½ï¿½
 		return live;
 	}
 
-	public void setLive(boolean live) { // ÉèÖÃÉúÃü
+	public void setLive(boolean live) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		this.live = live;
 	}
 
-	public Rectangle getRect() { // ·µ»Ø³¤·½ÐÎÊµÀý
+	public Rectangle getRect() { // ï¿½ï¿½ï¿½Ø³ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
 		return new Rectangle(x, y, width, length);
 	}
 
